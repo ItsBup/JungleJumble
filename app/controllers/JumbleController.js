@@ -25,12 +25,10 @@ export class JumbleController {
   activeJumble(jumbleID){
     jumbleService.activeJumble(jumbleID)
   }
-  submitJumble(event){
-    // event.preventDefault()
-    // const form = event.target
-    // let nweJumble = new Jumble(formData) 
-    // console.log(nweJumble)
-    jumbleService.submitJumble()
+  submitJumble(){
+    let submission = document.getElementById('text-box').value
+    console.log(submission)
+    jumbleService.submitJumble(submission)
   }
 }
 

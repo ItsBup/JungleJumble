@@ -7,11 +7,26 @@ class JumbleService {
     console.log(grabbedJumble)
     AppState.activeJumble = grabbedJumble
     console.log(AppState)
+    this.startGame()
   }
-  submitJumble(){
-    let submission = document.getElementById('text-box').value
-    console.log(submission)
+  submitJumble(submission){
+    const activeBody = AppState.activeJumble
+    if (submission == activeBody.body) {
+      window.alert('These are the same! congrats you can type')
+      this.endGame()
+    }
   }
-}
+  tickTimer(){
+    AppState.totalTime += 1
+  }
+  startGame(){
+    setInterval(this.tickTimer, 1000)
+    console.log(AppState.totalTime)
+  }
+  endGame(){
+    console.log(AppState.totalTime)
+  }
 
+}
+  
 export const jumbleService = new JumbleService()
