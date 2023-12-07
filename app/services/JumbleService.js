@@ -1,10 +1,10 @@
 import { AppState } from "../AppState.js";
-import { Example } from "../models/Example.js";
+import { Jumble } from "../models/Jumble.js";
 
-class ExamplesService {
+class JumbleService {
   addMessage(message) {
     AppState.examples.push(new Example(message))
   }
 }
 
-export const examplesService = new ExamplesService()
+export const jumbleService = new JumbleService()

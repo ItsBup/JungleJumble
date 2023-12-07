@@ -1,27 +1,21 @@
 import { AppState } from "../AppState.js"
-import { examplesService } from "../services/ExampleService.js"
+import { jumbleService } from "../services/JumbleService.js"
 
-function _logExamples() {
-  console.clear()
-
-  AppState.examples.forEach(exampleInstance => {
-    console.log(exampleInstance.message)
-  })
-
+function _drawJumbles(){
+  const jumbles = AppState.jumbles
+  let content = ''
+  jumbles.forEach(jumble => content += jumble.JumbleCard)
+  document.getElementById('jumble-box').innerHTML = content
 }
 
-export class ExamplesController {
+
+export class JumbleController {
   constructor() {
-    console.log('The ExamplesController has loaded')
-    AppState.on('examples', _logExamples)
+    console.log('The JumbleController has loaded')
+    _drawJumbles()
   }
 
-  addMessage(message) {
-    if (!message) {
-      throw new Error('You must provide a message')
-    }
-
-    examplesService.addMessage(message)
-  }
-
+  
 }
+
+

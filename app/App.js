@@ -1,8 +1,8 @@
-import { router } from './router-config.js';
+import { JumbleController } from "./controllers/JumbleController.js";
 
 class App {
 
-  router = router
+  JumbleController = new JumbleController()
 
 }
 

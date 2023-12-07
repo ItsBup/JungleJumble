@@ -1,3 +1,5 @@
+import { generateId } from "../utils/GenerateId.js";
+
 export class Jumble {
   constructor( data) {
     this.id = generateId()
@@ -9,7 +11,7 @@ export class Jumble {
     this.endTime = null
   }
 
-    get ListTemplate() { // a basic list template to get drawing
+    get JumbleCard(){ // a basic list template to get drawing
         return `<li>${this.name}</li>`
     }
 }
