@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js"
 import { Jumble } from "../models/Jumble.js"
 import { jumbleService } from "../services/JumbleService.js"
+import { getFormData } from "../utils/FormHandler.js"
 
 function _drawJumbles(){
   const jumbles = AppState.jumbles
@@ -13,6 +14,14 @@ function _drawActiveJumble(){
   const activeJumble = AppState.activeJumble
   let content = activeJumble.ActiveJumbleCard
   document.getElementById('active-box').innerHTML = content
+}
+
+function _drawJumbleForm(){
+  event.preventDefault
+  const form = event.target
+  const formData = getFormData(form)
+  jumbleService.drawJumbleForm(formData)
+  document.getElementById('jumble-form').innerHTML = content
 }
 
 export class JumbleController {
