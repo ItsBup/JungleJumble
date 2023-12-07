@@ -1,5 +1,7 @@
 import { AppState } from "../AppState.js";
 import { Jumble } from "../models/Jumble.js";
+import { saveState } from "../utils/Store.js";
+import { loadState } from "../utils/Store.js";
 
 class JumbleService {
   activeJumble(jumbleID) {
@@ -17,16 +19,30 @@ class JumbleService {
     }
   }
   tickTimer(){
-    AppState.totalTime += 1
+    const jumbleTime = AppState.activeJumble
+    jumbleTime.gameTime += 1
   }
   startGame(){
+    const timer = AppState.activeJumble
+    timer.gameTime = 0
     setInterval(this.tickTimer, 1000)
-    console.log(AppState.totalTime)
+    console.log(timer.gameTime)
   }
   endGame(){
-    console.log(AppState.totalTime)
+    console.log(AppState.activeJumble.gameTime)
+    if (AppState.activeJumble.fastestTime == null) {
+      AppState.activeJumble.fastestTime = AppState.activeJumble.gameTime
+    } else if (AppState.activeJumble.fastestTime > AppState.activeJumble.gameTime){
+      AppState.activeJumble.fastestTime = AppState.activeJumble.gameTime
+    }
+    console.log(AppState.activeJumble.fastestTime)
   }
+  saveTime(){
 
+  }
+  loadTime(){
+
+  }
 }
   
 export const jumbleService = new JumbleService()

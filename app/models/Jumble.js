@@ -7,8 +7,8 @@ export class Jumble {
     this.body = data.body
     // to best keep track of the fastest times you might want these properties too! They would start null cause no one has completed these yet.
     this.fastestTime = null
-    this.startTime = null
-    this.endTime = null
+    this.gameTime = null
+
   }
 
     get JumbleCard(){ // a basic list template to get drawing
@@ -16,7 +16,7 @@ export class Jumble {
     }
     get ActiveJumbleCard(){
       return `<div>${this.body}</div>
-        <textarea name="body"  rows="10" class="w-100" id="text-box" maxlength=100></textarea>
+        <textarea name="body"  rows="10" class="w-100" id="text-box" maxlength=10000></textarea>
         <button onclick="app.JumbleController.submitJumble()" type="button" class="btn btn-danger">DONE</button>
       `
     }
