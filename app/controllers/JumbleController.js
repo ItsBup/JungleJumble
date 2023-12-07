@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Jumble } from "../models/Jumble.js"
 import { jumbleService } from "../services/JumbleService.js"
 
 function _drawJumbles(){
@@ -24,7 +25,13 @@ export class JumbleController {
   activeJumble(jumbleID){
     jumbleService.activeJumble(jumbleID)
   }
-  
+  submitJumble(event){
+    // event.preventDefault()
+    // const form = event.target
+    // let nweJumble = new Jumble(formData) 
+    // console.log(nweJumble)
+    jumbleService.submitJumble()
+  }
 }
 
 

@@ -12,10 +12,12 @@ export class Jumble {
   }
 
     get JumbleCard(){ // a basic list template to get drawing
-        return `<li><button onclick="app.JumbleController.activeJumble('${this.id}')" class="btn btn-outline-light">${this.name}</button></li>`
+        return `<li><button onclick="app.JumbleController.activeJumble('${this.id}')" class="btn btn-danger">${this.name}</button></li>`
     }
     get ActiveJumbleCard(){
       return `<div>${this.body}</div>
-      <textarea rows="10" class="w-100" id="text-box" maxlength=100>${this.name}</textarea>`
+        <textarea name="body"  rows="10" class="w-100" id="text-box" maxlength=100></textarea>
+        <button onclick="app.JumbleController.submitJumble()" type="button" class="btn btn-danger">DONE</button>
+      `
     }
 }

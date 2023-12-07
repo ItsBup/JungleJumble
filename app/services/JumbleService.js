@@ -8,6 +8,10 @@ class JumbleService {
     AppState.activeJumble = grabbedJumble
     console.log(AppState)
   }
+  submitJumble(){
+    let submission = document.getElementById('text-box').value
+    console.log(submission)
+  }
 }
 
 export const jumbleService = new JumbleService()
