@@ -8,11 +8,18 @@ function _drawJumbles(){
   document.getElementById('jumble-box').innerHTML = content
 }
 
+function _drawActiveJumble(){
+  const activeJumble = AppState.activeJumble
+  let content = activeJumble.ActiveJumbleCard
+  document.getElementById('active-box').innerHTML = content
+}
 
 export class JumbleController {
   constructor() {
     console.log('The JumbleController has loaded')
     _drawJumbles()
+    AppState.on('activeJumble',_drawActiveJumble)
+    AppState.on('jumbles',_drawJumbles)
   }
   activeJumble(jumbleID){
     jumbleService.activeJumble(jumbleID)
