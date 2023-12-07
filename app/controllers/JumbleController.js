@@ -14,7 +14,9 @@ export class JumbleController {
     console.log('The JumbleController has loaded')
     _drawJumbles()
   }
-
+  activeJumble(jumbleID){
+    jumbleService.activeJumble(jumbleID)
+  }
   
 }
 
